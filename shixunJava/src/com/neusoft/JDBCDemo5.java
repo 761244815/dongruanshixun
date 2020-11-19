@@ -33,17 +33,18 @@ public class JDBCDemo5 {
 //            int DEPTNO = rs.getInt("DEPTNO");
 //            System.out.println(EMPNO + "----" + ENAME + "----" + JOB + "----" +MGR + "----" + HIREDATE + "----" + SAL + "----" +COMM+"----"+DEPTNO);
 //        }
-        rs.next();
-        int EMPNO = rs.getInt("EMPNO");
-        String ENAME = rs.getString("ENAME");
-        String JOB = rs.getString("JOB");
-        int MGR = rs.getInt("MGR");
-        Date HIREDATE = rs.getDate("HIREDATE");
-        int SAL = rs.getInt("SAL");
-        int COMM = rs.getInt("COMM");
-        int DEPTNO = rs.getInt("DEPTNO");
-        Emp emp = new Emp(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO);
-        System.out.println(emp);
+        while (rs.next()) {
+            int EMPNO = rs.getInt("EMPNO");
+            String ENAME = rs.getString("ENAME");
+            String JOB = rs.getString("JOB");
+            int MGR = rs.getInt("MGR");
+            Date HIREDATE = rs.getDate("HIREDATE");
+            int SAL = rs.getInt("SAL");
+            int COMM = rs.getInt("COMM");
+            int DEPTNO = rs.getInt("DEPTNO");
+            Emp emp = new Emp(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO);
+            System.out.println(emp);
+        }
 
         // 8、释放资源
         stmt.close();
