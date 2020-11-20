@@ -98,11 +98,43 @@ public class BusinessDaoImpl  implements BusinessDao {
 
     @Override
     public int updateBusiness(Business business) {
+        int result = 0;
+        String sql = "update business set businessName = ?,businessAddress = ?,businessExplain = ?,starPrice = ?,DELIVERYpRICE = ? where bussinessId = ?";
+        try {
+            conn = JDBCUtils.getConnection();
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,business.getBusinessName());
+            pst.setString(2,business.getBusinessAddress());
+            pst.setString(3,business.getBusinessExplain());
+            pst.setDouble(4,business.getStartPrice());
+            pst.setDouble(5,business.getDeliveryPrice());
+            pst.setInt(6,business.getBusinessId());
+            result =  pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
     @Override
-    public Business getBusinessById() {
+    public Business getBusinessById(Integer businessId) {
+        Business business = null;
+        String sql = "select * from business where businessId = ?";
+        try {
+            conn = JDBCUtils.getConnection();
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1,businessId);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                business = new Business();
+                business.setBusinessName(rs.getString("businessName"));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs,pst,conn);
+        }
         return null;
     }
 }
