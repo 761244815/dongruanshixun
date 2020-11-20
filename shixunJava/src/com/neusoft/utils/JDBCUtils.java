@@ -48,7 +48,6 @@ public class JDBCUtils {
     public static void close(Statement stmt,Connection conn){
         close(null,stmt,conn);
     }
-
     public static void close(ResultSet rs, Statement stmt,Connection conn){
         if(rs !=null){
             try {
