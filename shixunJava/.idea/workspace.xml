@@ -149,6 +149,7 @@
       <workItem from="1605680949314" duration="9180000" />
       <workItem from="1605747875431" duration="16847000" />
       <workItem from="1605834870801" duration="1583000" />
+      <workItem from="1605856609786" duration="449000" />
     </task>
     <servers />
   </component>
@@ -176,10 +177,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="136" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605753803843" />
-    <state x="409" y="164" key="FileChooserDialogImpl" timestamp="1605835672991">
+    <state x="409" y="164" key="FileChooserDialogImpl" timestamp="1605857008964">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="409" y="164" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605835672991" />
+    <state x="409" y="164" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605857008964" />
     <state width="693" height="325" key="GridCell.Tab.0.bottom" timestamp="1605778066929">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -216,9 +217,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605684653848" />
-    <state x="38" y="33" key="new project wizard" timestamp="1605835674040">
+    <state x="160" y="39" width="1180" height="785" key="new project wizard" timestamp="1605857010543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="38" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605835674040" />
+    <state x="160" y="39" width="1180" height="785" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605857010543" />
   </component>
 </project>

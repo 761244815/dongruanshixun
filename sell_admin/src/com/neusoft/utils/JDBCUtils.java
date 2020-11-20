@@ -14,29 +14,28 @@ import java.util.Properties;
  * JDBC连接数据库工具类
  */
 public class JDBCUtils {
-    // 定义成员变量 DataSource
+    //定义成员变量 DataSource
     private static DataSource ds;
-    // 初始化静态成员变量
+    //初始化静态成员变量
     static {
-        try {
-            // 加载 properties 文件
+        try{
+            //加载properties 文件
             Properties pro = new Properties();
             InputStream in = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
             pro.load(in);
-            // 给ds进行初始化
+            //给ds进行初始化
             ds = DruidDataSourceFactory.createDataSource(pro);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e){
+        e.printStackTrace();
         }
     }
 
     /**
      * 获取数据库连接
-     * @return 连接对象
+     * @return
      * @throws Exception
      */
-    public static Connection getConnection() throws Exception {
-
+    public static Connection getConnection() throws Exception{
         return ds.getConnection();
     }
 
@@ -45,29 +44,28 @@ public class JDBCUtils {
      * @param stmt
      * @param conn
      */
-    public static void close( Statement stmt, Connection conn){
-        close(null, stmt, conn);
+    public static void close(Statement stmt,Connection conn){
+        close(null,stmt,conn);
     }
-
-    public static void close(ResultSet rs, Statement stmt, Connection conn) {
-        if (rs != null){
+    public static void close(ResultSet rs, Statement stmt,Connection conn){
+        if(rs !=null){
             try {
                 rs.close();
-            } catch (SQLException throwables) {
+            } catch (SQLException throwables){
                 throwables.printStackTrace();
             }
         }
         if (stmt != null){
             try {
-                stmt.close();
+            stmt.close();
             } catch (SQLException throwables) {
-                throwables.printStackTrace();
+            throwables.printStackTrace();
             }
         }
         if (conn != null){
             try {
                 conn.close();
-            } catch (SQLException throwables) {
+            }catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
