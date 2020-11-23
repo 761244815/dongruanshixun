@@ -16,17 +16,29 @@ public class BusinessDaoImpl  implements BusinessDao {
     PreparedStatement pst = null;
     ResultSet rs = null;
     @Override
-    public List<Business> listBusiness() {
+    public List<Business> listBusiness(String businessName,  String businessAddress) {
         ArrayList<Business> list = new ArrayList<>();
-        String sql = "select * from business";
+        StringBuffer sql = new StringBuffer("select * from business WHERE 1=1");
+        if (businessName !=null && !businessName.equals("")){
+            sql.append(" and  businessName LIKE '%"+businessName+"%'");
+        }
+        if (businessAddress !=null && !businessAddress.equals("") ){
+            sql.append(" and businessAddress like '%"+businessAddress+"%'");
+        }
+//        System.out.println("sql ="+sql.toString());
         try {
             conn = JDBCUtils.getConnection();
-            pst = conn.prepareStatement(sql);
+            pst = conn.prepareStatement(sql.toString());
             rs = pst.executeQuery();
             while (rs.next()){
                 Business business = new Business();
-                String businessName = rs.getString(3);
-                business.setBusinessName(businessName);
+                business.setBusinessId(rs.getInt("businessId"));
+                business.setPassword(rs.getString("password"));
+                business.setBusinessName(rs.getString("businessName"));
+                business.setBusinessAddress(rs.getString("businessAddress"));
+                business.setBusinessExplain(rs.getString("businessExplain"));
+                business.setStartPrice(rs.getDouble("starPrice"));
+                business.setDeliveryPrice(rs.getDouble("deliveryPrice"));
                 list.add(business);
             }
 
@@ -66,7 +78,7 @@ public class BusinessDaoImpl  implements BusinessDao {
     /**
      * 删除商家
      * @param businessId 商家id
-     * @return 0 代表删除失败； 1 删除成功
+     * @return 0 代表删除失败 ； 1 删除成功
      */
     @Override
     public int removeBusiness(int businessId) {
@@ -74,10 +86,10 @@ public class BusinessDaoImpl  implements BusinessDao {
         String sql = "delete from business where businessId = ?";
         try {
             conn = JDBCUtils.getConnection();
-            //开启事务
+            // 开启事务
             conn.setAutoCommit(false);
             pst = conn.prepareStatement(sql);
-            pst.setInt(1,businessId);
+            pst.setInt(1, businessId);
             result = pst.executeUpdate();
 
             conn.commit();
@@ -90,7 +102,7 @@ public class BusinessDaoImpl  implements BusinessDao {
             }
             e.printStackTrace();
         }finally {
-            JDBCUtils.close(pst,conn);
+            JDBCUtils.close(pst, conn);
         }
 
         return result;
@@ -99,9 +111,9 @@ public class BusinessDaoImpl  implements BusinessDao {
     @Override
     public int updateBusiness(Business business) {
         int result = 0;
-        String sql = "update business set businessName = ?,businessAddress = ?,businessExplain = ?,starPrice = ?,DELIVERYpRICE = ? where bussinessId = ?";
+        String sql = "update business set businessName = ?,businessAddress=? , businessExplain =?, starPrice=?, deliveryPrice = ? where businessId = ?";
         try {
-            conn = JDBCUtils.getConnection();
+            conn =  JDBCUtils.getConnection();
             pst = conn.prepareStatement(sql);
             pst.setString(1,business.getBusinessName());
             pst.setString(2,business.getBusinessAddress());
@@ -109,11 +121,11 @@ public class BusinessDaoImpl  implements BusinessDao {
             pst.setDouble(4,business.getStartPrice());
             pst.setDouble(5,business.getDeliveryPrice());
             pst.setInt(6,business.getBusinessId());
-            result =  pst.executeUpdate();
+            result = pst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 0;
+        return result;
     }
 
     @Override
@@ -123,18 +135,57 @@ public class BusinessDaoImpl  implements BusinessDao {
         try {
             conn = JDBCUtils.getConnection();
             pst = conn.prepareStatement(sql);
-            pst.setInt(1,businessId);
+            pst.setInt(1, businessId);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()){
                 business = new Business();
+                business.setBusinessId(rs.getInt("businessId"));
+                business.setPassword(rs.getString("password"));
                 business.setBusinessName(rs.getString("businessName"));
+                business.setBusinessAddress(rs.getString("businessAddress"));
+                business.setBusinessExplain(rs.getString("businessExplain"));
+                business.setStartPrice(rs.getDouble("starPrice"));
+                business.setDeliveryPrice(rs.getDouble("deliveryPrice"));
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            JDBCUtils.close(rs,pst,conn);
+            JDBCUtils.close(rs, pst, conn);
         }
-        return null;
+        return business;
+    }
+
+    @Override
+    public Business getBusinessByIdAndPassword(Integer businessId, String password) {
+
+        Business business = null;
+        String sql = "select * from business where businessId = ? and password = ? ";
+        try {
+            conn = JDBCUtils.getConnection();
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1,businessId);
+            pst.setString(2, password);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                business = new Business();
+                business.setBusinessId(rs.getInt("businessId"));
+                business.setPassword(rs.getString("password"));
+                business.setBusinessName(rs.getString("businessName"));
+                business.setBusinessAddress(rs.getString("businessAddress"));
+                business.setBusinessExplain(rs.getString("businessExplain"));
+                business.setStartPrice(rs.getDouble("starPrice"));
+                business.setDeliveryPrice(rs.getDouble("deliveryPrice"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs, pst, conn);
+        }
+
+        return business;
+
+
     }
 }

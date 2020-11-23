@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BusinessDao {
     // 所有商家列表
-    public List<Business> listBusiness();
+    public List<Business> listBusiness(String businiessName,String businessAddress);
     //保存商家
      //public int saveBusiness(Business business);
      public int saveBusiness(String businessName) ;
@@ -16,5 +16,7 @@ public interface BusinessDao {
     public int updateBusiness(Business business);
     //通过id查询
     public Business getBusinessById(Integer businessId);
+    //通过id和password进行查询返回Business对象
+    public Business getBusinessByIdAndPassword(Integer businessId,String password);
 
 }
