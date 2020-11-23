@@ -140,7 +140,7 @@
       <updated>1605857010699</updated>
       <workItem from="1605857013640" duration="308000" />
       <workItem from="1605857392068" duration="6683000" />
-      <workItem from="1606093631579" duration="10673000" />
+      <workItem from="1606093631579" duration="13058000" />
     </task>
     <servers />
   </component>
@@ -164,43 +164,33 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="259" y="267" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1606093757782" />
-    <state x="178" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1606112383270">
+    <state x="178" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1606115456068">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="178" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606112383270" />
+    <state x="178" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606115456068" />
     <state x="131" y="273" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605861263027">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="131" y="273" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1605861263027" />
-    <state width="705" height="132" key="GridCell.Tab.0.bottom" timestamp="1606101807423">
+    <state width="1493" height="132" key="GridCell.Tab.0.bottom" timestamp="1606117017940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="705" height="132" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606101807423" />
-    <state width="705" height="132" key="GridCell.Tab.0.center" timestamp="1606101807423">
+    <state width="1493" height="132" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606117017940" />
+    <state width="1493" height="132" key="GridCell.Tab.0.center" timestamp="1606117017940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="705" height="132" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606101807423" />
-    <state width="705" height="132" key="GridCell.Tab.0.left" timestamp="1606101807423">
+    <state width="1493" height="132" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606117017940" />
+    <state width="1493" height="132" key="GridCell.Tab.0.left" timestamp="1606117017940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="705" height="132" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606101807423" />
-    <state width="705" height="132" key="GridCell.Tab.0.right" timestamp="1606101807423">
+    <state width="1493" height="132" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606117017940" />
+    <state width="1493" height="132" key="GridCell.Tab.0.right" timestamp="1606117017940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="705" height="132" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606101807423" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/neusoft/view/impl/BusinessViewImpl.java</url>
-          <line>86</line>
-          <properties class="com.neusoft.view.impl.BusinessViewImpl" method="login">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1493" height="132" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606117017940" />
+    <state x="99" y="156" key="refactoring.ChangeSignatureDialog" timestamp="1606115720688">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="99" y="156" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1606115720688" />
   </component>
 </project>
