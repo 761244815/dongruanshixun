@@ -17,14 +17,12 @@ public class FoodDaoImpl implements FoodDao {
     PreparedStatement pst = null;
     ResultSet rs = null;
     @Override
-    public List<Food> listFoodByBusinessId(Integer foodName) {
+    public List<Food> listFoodByBusinessId(Integer businessId) {
         ArrayList<Food> list = new ArrayList<>();
         StringBuffer sql = new StringBuffer("select * from food WHERE 1=1");
-        if (foodName !=null && !foodName.equals("")){
-            sql.append(" and  foodName LIKE '%"+foodName+"%'");
+        if (businessId !=null && !businessId.equals("")){
+            sql.append(" and  businessId = "+businessId);
         }
-
-//        System.out.println("sql ="+sql.toString());
         try {
             conn = JDBCUtils.getConnection();
             pst = conn.prepareStatement(sql.toString());
@@ -35,7 +33,6 @@ public class FoodDaoImpl implements FoodDao {
                 food.setFoodName(rs.getString("foodName"));
                 food.setFoodExplain(rs.getString("foodExplain"));
                 food.setFoodPrice(rs.getDouble("foodPrice"));
-                food.setBusinessId(rs.getInt("businessId"));
                 list.add(food);
             }
 
@@ -47,15 +44,18 @@ public class FoodDaoImpl implements FoodDao {
     }
 
     @Override
-    public int saveFood(String foodName) {
+    public int saveFood(Food food) {
         int foodId = 0;
-        // 希望插入一个食物的时候给一个价格
-        String sql = "insert into food(foodName,foodPrice) values (?, '123') ";
+        // 希望插入一个食品的时候自动给一个
+        String sql = "insert into food(foodName, foodExplain,foodPrice,businessId) values (?, ?, ?, ?) ";
         try {
             conn = JDBCUtils.getConnection();
             // 要设置返回自增长的键
             pst = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            pst.setString(1, foodName);
+            pst.setString(1, food.getFoodName());
+            pst.setString(2, food.getFoodExplain());
+            pst.setDouble(3, food.getFoodPrice());
+            pst.setInt(4, food.getBusinessId());
             pst.executeUpdate();
             // 同时获取自增长的id值  一行一列
             rs = pst.getGeneratedKeys();
@@ -75,15 +75,14 @@ public class FoodDaoImpl implements FoodDao {
     @Override
     public int updateFood(Food food) {
         int result = 0;
-        String sql = "update food set foodName = ?, foodExplain =?, foodPrice=?, businessId = ? where foodId = ?";
+        String sql = "update food set foodName = ?,foodExplain =?, foodPrice = ? where foodId = ?";
         try {
             conn =  JDBCUtils.getConnection();
             pst = conn.prepareStatement(sql);
             pst.setString(1,food.getFoodName());
             pst.setString(2,food.getFoodExplain());
             pst.setDouble(3,food.getFoodPrice());
-            pst.setInt(4,food.getBusinessId());
-            pst.setInt(5,food.getFoodId());
+            pst.setInt(4,food.getFoodId());
             result = pst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,14 +118,14 @@ public class FoodDaoImpl implements FoodDao {
         return result;
     }
 
-
     @Override
-    public Food getFoodById(Integer FoodId) {
+    public Food getFoodById(Integer foodId) {
         Food food = null;
         String sql = "select * from food where foodId = ?";
         try {
             conn = JDBCUtils.getConnection();
-            pst = conn.prepareStatement(sql.toString());
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, foodId);
             rs = pst.executeQuery();
             while (rs.next()){
                 food = new Food();
@@ -137,11 +136,12 @@ public class FoodDaoImpl implements FoodDao {
                 food.setBusinessId(rs.getInt("businessId"));
 
             }
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs, pst, conn);
         }
-
         return food;
+
     }
 }

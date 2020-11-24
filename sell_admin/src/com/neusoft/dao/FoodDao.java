@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FoodDao {
     public List<Food> listFoodByBusinessId(Integer businessId);
-    public int saveFood(String foodName);
+    public int saveFood(Food food);
     public int updateFood(Food food);
     public int removeFood(Integer foodId);
     public Food getFoodById(Integer FoodId);

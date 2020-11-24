@@ -35,6 +35,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/neusoft" />
@@ -98,6 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605857010699</updated>
       <workItem from="1605857013640" duration="377000" />
+      <workItem from="1606214144984" duration="6000" />
     </task>
     <servers />
   </component>
@@ -114,6 +117,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="846" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605857184288">

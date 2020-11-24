@@ -8,6 +8,8 @@ public interface BusinessDao {
     // 所有商家列表
     public List<Business> listBusiness(String businiessName,String businessAddress);
     //保存商家
+    //当前商家列表
+    public List<Business> listThisBusiness(Integer businessId);
      //public int saveBusiness(Business business);
      public int saveBusiness(String businessName) ;
     // 删除商家

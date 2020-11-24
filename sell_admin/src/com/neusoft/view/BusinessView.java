@@ -4,6 +4,8 @@ import com.neusoft.domain.Business;
 
 public interface BusinessView {
     public void listAllBusinesses();
+    public void listThisBusiness(Integer businessId);
+    public void updateBusiness(Integer businessId);
     public void selectBusinesses();
 
     public void saveBusiness();
