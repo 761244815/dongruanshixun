@@ -32,7 +32,7 @@ public class BusinessAdminEntry {
                 menu = input.nextInt();
                 switch (menu){
                     case 1:
-                        businessView.listThisBusiness(business.getBusinessId());
+                        businessView.listTheBusiness(business.getBusinessId());
                         break;
                     case 2:
                         businessView.updateBusiness(business.getBusinessId());

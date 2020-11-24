@@ -9,7 +9,7 @@ public interface BusinessDao {
     public List<Business> listBusiness(String businiessName,String businessAddress);
     //保存商家
     //当前商家列表
-    public List<Business> listThisBusiness(Integer businessId);
+    public List<Business> listTheBusiness(Integer businessId);
      //public int saveBusiness(Business business);
      public int saveBusiness(String businessName) ;
     // 删除商家

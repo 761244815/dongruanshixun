@@ -50,7 +50,7 @@ public class BusinessDaoImpl  implements BusinessDao {
     }
 
     @Override
-    public List<Business> listThisBusiness(Integer businessId) {
+    public List<Business> listTheBusiness(Integer businessId) {
         ArrayList<Business> list = new ArrayList<>();
         StringBuffer sql = new StringBuffer("select * from business WHERE 1=1");
         if (businessId !=null && !businessId.equals("")){
