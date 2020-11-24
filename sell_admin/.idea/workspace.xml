@@ -141,6 +141,7 @@
       <workItem from="1605857013640" duration="308000" />
       <workItem from="1605857392068" duration="6683000" />
       <workItem from="1606093631579" duration="20180000" />
+      <workItem from="1606179985260" duration="717000" />
     </task>
     <servers />
   </component>
@@ -188,6 +189,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="132" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606134269584" />
+    <state x="4" y="2" width="653" height="780" key="new project wizard" timestamp="1606180702697">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="4" y="2" width="653" height="780" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1606180702697" />
     <state x="99" y="156" key="refactoring.ChangeSignatureDialog" timestamp="1606115720688">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
