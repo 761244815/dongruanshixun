@@ -23,7 +23,7 @@ public class ElmAdminEntry {
 
         Scanner input =  new Scanner(System.in);
         System.out.println("-----------------------------------");
-        System.out.println("---------饿了么后台管理系统----------");
+        System.out.println("---------饿了么后台管理系统------------");
         System.out.println("-----------------------------------");
 
         AdminView adminView = new AdminViewImpl();

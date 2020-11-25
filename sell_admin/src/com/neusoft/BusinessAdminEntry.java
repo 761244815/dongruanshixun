@@ -17,7 +17,7 @@ public class BusinessAdminEntry {
     public static void run() {
         Scanner input =  new Scanner(System.in);
         System.out.println("-----------------------------------");
-        System.out.println("---------饿了么商家自主管理系统----------");
+        System.out.println("---------饿了么商家自主管理系统---------");
         System.out.println("-----------------------------------");
 
         // 商家登录
@@ -54,7 +54,7 @@ public class BusinessAdminEntry {
             }
 
         }else {
-            System.out.println("登录失败, 用户名密码错误");
+            System.out.println("登录失败, 用户名或密码错误");
         }
 
     }
